@@ -1,4 +1,4 @@
-# discord_bot
+# discord_application_bot
 ## Simple discord application bot writen in Golang [WIP]
 ### [WIP]
 
