@@ -44,22 +44,12 @@ func main() {
 }
 
 func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
-	var trigger bool = true
 	if m.Author.ID == s.State.User.ID {
 		return
 	}
-	if len(applications) > 0 {
-		for i := 0; i < len(applications); i++ {
-			fmt.Println(applications[i])
-		}
-	} else {
-		trigger = false
-	}
-	if trigger == false {
-		if m.ChannelID != channel_id {
-			fmt.Println(m.ChannelID, channel_id)
-			return
-		}
+	if m.ChannelID != channel_id {
+		fmt.Println(m.ChannelID, channel_id)
+		return
 	}
 	if m.Content == "!apply" {
 		channel, err := s.UserChannelCreate(m.Author.ID)
